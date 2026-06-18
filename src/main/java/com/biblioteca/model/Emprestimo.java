@@ -4,20 +4,17 @@ import com.biblioteca.model.abstracts.ItemBiblioteca;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.EnumeratedValue;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Entity
 @Getter
-@Setter
 public class Emprestimo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,10 +28,6 @@ public class Emprestimo {
 
     @Enumerated(EnumType.STRING)
     private StatusEmprestimo status;
-
-    @ManyToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
 
     @ManyToOne
     @JoinColumn(name = "item_id")
